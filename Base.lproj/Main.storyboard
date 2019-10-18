@@ -100,24 +100,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AH0-aq-CcI">
-                                <rect key="frame" x="0.0" y="222" width="414" height="598"/>
+                                <rect key="frame" x="0.0" y="222" width="414" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="J9d-G0-1ze" customClass="MessageTableViewCell" customModule="MessageMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewCell" rowHeight="70" id="J9d-G0-1ze" customClass="MessageTableViewCell" customModule="MessageMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J9d-G0-1ze" id="DRj-ro-aM4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3M-rM-6e6" userLabel="LabelName">
-                                                    <rect key="frame" x="20" y="9" width="48" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahoj, jak se máš?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBp-ga-eei" userLabel="LabelText">
-                                                    <rect key="frame" x="20" y="38" width="132" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Radek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3M-rM-6e6" userLabel="LabelName">
+                                                    <rect key="frame" x="20" y="-5" width="48" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -128,8 +122,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ahoj, jak se máš?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBp-ga-eei" userLabel="LabelText">
+                                                    <rect key="frame" x="20" y="25" width="132" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="FBp-ga-eei" firstAttribute="bottom" secondItem="l3M-rM-6e6" secondAttribute="bottom" id="4gX-OO-hex"/>
                                                 <constraint firstAttribute="trailing" secondItem="jaQ-9a-Voi" secondAttribute="trailing" constant="20" id="5SJ-nj-bxG"/>
                                                 <constraint firstItem="l3M-rM-6e6" firstAttribute="top" secondItem="DRj-ro-aM4" secondAttribute="top" constant="9" id="O8z-ta-SvS"/>
                                                 <constraint firstItem="FBp-ga-eei" firstAttribute="leading" secondItem="DRj-ro-aM4" secondAttribute="leading" constant="20" id="P3O-l9-yT3"/>
@@ -145,6 +146,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="emv-Qs-1MZ" id="Vsa-IF-trc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -155,7 +159,7 @@
                             <constraint firstItem="qEZ-iz-knd" firstAttribute="leading" secondItem="liV-NI-Jo7" secondAttribute="leading" constant="55" id="P1t-SF-xfA"/>
                             <constraint firstItem="AH0-aq-CcI" firstAttribute="leading" secondItem="liV-NI-Jo7" secondAttribute="leading" id="QBJ-9y-5j8"/>
                             <constraint firstItem="liV-NI-Jo7" firstAttribute="trailing" secondItem="AH0-aq-CcI" secondAttribute="trailing" id="SmE-iX-0zB"/>
-                            <constraint firstItem="liV-NI-Jo7" firstAttribute="bottom" secondItem="AH0-aq-CcI" secondAttribute="bottom" constant="42" id="ZnR-SO-M9I"/>
+                            <constraint firstItem="liV-NI-Jo7" firstAttribute="bottom" secondItem="AH0-aq-CcI" secondAttribute="bottom" constant="20" id="ZnR-SO-M9I"/>
                             <constraint firstItem="liV-NI-Jo7" firstAttribute="trailing" secondItem="0TM-9y-8pe" secondAttribute="trailing" constant="50" id="k2u-su-wwU"/>
                             <constraint firstItem="kRU-3j-Ofg" firstAttribute="centerX" secondItem="liV-NI-Jo7" secondAttribute="centerX" id="kgo-dx-aDh"/>
                             <constraint firstItem="liV-NI-Jo7" firstAttribute="trailing" secondItem="NCq-aR-Ikn" secondAttribute="trailing" constant="30" id="meg-ZN-J6U"/>
@@ -167,6 +171,7 @@
                     </view>
                     <connections>
                         <outlet property="lblname" destination="kRU-3j-Ofg" id="YuY-cB-7kn"/>
+                        <outlet property="tableView" destination="AH0-aq-CcI" id="IHO-RI-Y8A"/>
                         <outlet property="textInput" destination="NCq-aR-Ikn" id="GAe-WB-24N"/>
                     </connections>
                 </viewController>
